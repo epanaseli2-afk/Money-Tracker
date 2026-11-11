@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f7f8">
+    <title>MyMoney — Keuangan lebih terarah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#top" aria-label="MyMoney beranda">
+                <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17.5 9.2 12l3.6 3.2L20 7.5M14.8 7.5H20v5.2"/></svg></span>
+                <span>my<span>money</span></span>
+            </a>
+            <div class="side-label">MENU</div>
+            <nav class="main-nav" aria-label="Navigasi utama">
+                <a class="nav-link active" href="#overview"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="11" width="7" height="10" rx="2"/><rect x="3" y="14" width="8" height="7" rx="2"/></svg>Ringkasan</a>
+                <a class="nav-link" href="#transactions"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2"/></svg>Transaksi</a>
+                <a class="nav-link" href="#insights"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 15v-4m5 4V7m5 8V9"/></svg>Analisis</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="side-note"><span class="note-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18m5-13c0-1.7-1.8-3-5-3S7 6.3 7 8s1.8 3 5 4 5 2.3 5 4-1.8 3-5 3-5-1.3-5-3"/></svg></span><p>Kelola uangmu<br><strong>dengan lebih bijak.</strong></p></div>
+                <p class="side-copy">© 2025 MyMoney</p>
+            </div>
+        </aside>
+
+        <main class="main-content" id="top">
+            <header class="topbar">
+                <div class="mobile-brand brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17.5 9.2 12l3.6 3.2L20 7.5M14.8 7.5H20v5.2"/></svg></span><span>my<span>money</span></span></div>
+                <div class="welcome-copy"><p class="eyebrow" id="currentDate">DASHBOARD</p><h1>Keuanganmu, <span>lebih terkendali.</span></h1></div>
+                <button id="themeToggle" class="icon-button theme-toggle" type="button" aria-label="Aktifkan mode gelap" title="Ganti tema"><svg viewBox="0 0 24 24"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg></button>
+            </header>
+
+            <section class="overview-grid" id="overview" aria-label="Ringkasan keuangan">
+                <article class="balance-card">
+                    <div class="balance-top"><span class="balance-label"><span class="status-dot"></span> TOTAL SALDO</span><span class="period-pill">Semua waktu</span></div>
+                    <p class="balance-caption">Saldo bersih yang kamu miliki</p>
+                    <h2 id="totalBalance">Rp 0</h2>
+                    <div class="balance-bottom"><span class="balance-trend"><svg viewBox="0 0 24 24"><path d="m4 15 5-5 4 3 7-8M14 5h6v6"/></svg><span id="balanceNote">Terus pantau arus keuanganmu</span></span><span class="balance-decoration" aria-hidden="true">M</span></div>
+                </article>
+                <div class="summary-stack">
+                    <article class="metric-card income-card"><div class="metric-icon income-icon"><svg viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></div><div><p>Total pemasukan</p><h3 id="totalIncome">Rp 0</h3></div><span class="metric-arrow" aria-hidden="true">↗</span></article>
+                    <article class="metric-card expense-card"><div class="metric-icon expense-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14m6-6-6 6-6-6"/></svg></div><div><p>Total pengeluaran</p><h3 id="totalExpense">Rp 0</h3></div><span class="metric-arrow" aria-hidden="true">↘</span></article>
+                </div>
+            </section>
+
+            <section class="insight-grid" id="insights">
+                <article class="panel monthly-panel">
+                    <div class="section-heading"><div><p class="eyebrow">PERFORMA BULAN INI</p><h2>Ikhtisar bulanan</h2></div><span class="month-chip" id="monthLabel"></span></div>
+                    <div class="month-totals"><div><span><i class="legend-dot income-dot"></i>Pemasukan</span><strong id="monthlyIncome">Rp 0</strong></div><div><span><i class="legend-dot expense-dot"></i>Pengeluaran</span><strong id="monthlyExpense">Rp 0</strong></div></div>
+                    <div class="chart-legend"><span><i class="legend-dot income-dot"></i>Pemasukan</span><span><i class="legend-dot expense-dot"></i>Pengeluaran</span></div>
+                    <div class="monthly-chart" id="monthlyChart" role="img" aria-label="Grafik pemasukan dan pengeluaran mingguan"></div>
+                </article>
+                <article class="panel breakdown-panel">
+                    <div class="section-heading"><div><p class="eyebrow">KEMANA UANGMU?</p><h2>Pengeluaran</h2></div><span class="chart-badge">Bulan ini</span></div>
+                    <div class="breakdown-content"><div class="donut-wrap"><div class="donut-chart" id="spendingChart"><div class="donut-center"><strong id="chartTotal">Rp 0</strong><span>total keluar</span></div></div></div><div class="category-legend" id="categoryBreakdown"></div></div>
+                    <p class="chart-empty" id="chartEmpty">Catatan pengeluaranmu akan tampil di sini.</p>
+                </article>
+            </section>
+
+            <section class="goal-panel panel" aria-labelledby="goalTitle">
+                <div class="goal-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+                <div class="goal-copy"><p class="eyebrow">LANGKAH KECIL, HASIL BESAR</p><h2 id="goalTitle">Target tabungan bulanan</h2><p id="goalProgressText">Atur target agar kamu makin semangat menabung.</p><div class="progress-track"><span id="goalProgress"></span></div></div>
+                <div class="goal-control"><label for="goalAmount">Target per bulan</label><div class="goal-input-wrap"><span>Rp</span><input type="number" id="goalAmount" min="1" step="10000" inputmode="numeric" aria-label="Target tabungan bulanan"></div></div>
+            </section>
+
+            <section class="content-grid">
+                <article class="panel form-panel" id="add-transaction">
+                    <div class="section-heading"><div><p class="eyebrow">CATAT ARUS UANG</p><h2>Tambah transaksi</h2></div><span class="form-sparkle" aria-hidden="true">✳</span></div>
+                    <form id="transactionForm">
+                        <div class="type-switch" role="group" aria-label="Jenis transaksi"><button type="button" class="type-option selected" data-type="expense" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M12 5v14m6-6-6 6-6-6"/></svg>Pengeluaran</button><button type="button" class="type-option" data-type="income" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>Pemasukan</button></div>
+                        <input type="hidden" id="type" value="expense">
+                        <label for="description">Nama transaksi</label><input type="text" id="description" placeholder="Contoh: Makan siang" maxlength="80" required>
+                        <div class="form-row"><div><label for="amount">Jumlah</label><div class="input-with-prefix"><span>Rp</span><input type="number" id="amount" placeholder="0" min="1" step="1" inputmode="numeric" required></div></div><div><label for="category">Kategori</label><div class="select-with-icon"><span id="selectedCategoryIcon" aria-hidden="true"></span><select id="category" required></select><svg class="select-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div></div></div>
+                        <label for="transactionDate">Tanggal</label><input type="date" id="transactionDate" required>
+                        <button type="submit" class="primary-button"><svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>Simpan transaksi</button>
+                    </form>
+                </article>
+
+                <article class="panel transactions-panel" id="transactions">
+                    <div class="section-heading transaction-heading"><div><p class="eyebrow">SEMUA AKTIVITAS</p><h2>Transaksi terbaru</h2></div><button id="clearAll" class="text-button" type="button">Hapus semua</button></div>
+                    <div class="transaction-tools"><label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="searchInput" type="search" placeholder="Cari transaksi..." aria-label="Cari transaksi"></label></div>
+                    <div class="filter-tabs" role="group" aria-label="Filter transaksi"><button type="button" class="filter-tab active" data-filter="all" aria-pressed="true">Semua</button><button type="button" class="filter-tab" data-filter="income" aria-pressed="false">Pemasukan</button><button type="button" class="filter-tab" data-filter="expense" aria-pressed="false">Pengeluaran</button></div>
+                    <div class="transaction-list" id="transactionList" aria-live="polite"></div>
+                </article>
+            </section>
+            <footer class="app-footer"><span>Dirancang untuk keputusan finansial yang lebih baik.</span><span>MyMoney <i>•</i> Personal Finance</span></footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
